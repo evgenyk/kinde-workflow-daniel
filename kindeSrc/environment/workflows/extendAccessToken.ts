@@ -9,8 +9,6 @@ export const workflowSettings: WorkflowSettings = {
   
 export default {
   async handle(event: onUserTokenGeneratedEvent) {
-    const accessToken = accessTokenCustomClaims<{ hello: string; ipAddress: string; ipAdd: string}>();
-    accessToken.hello = "Hello there!";
-    accessToken.ipAddress = event.request.ip
+    kinde.accessToken.setCustomClaim('hello', "Hello there!");
   }
 }
