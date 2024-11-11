@@ -1,9 +1,9 @@
 import { onUserTokenGeneratedEvent,  accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
+import { settings } from "../../../utils/utils";
 
 export const workflowSettings: WorkflowSettings = {
   id: "addAccessTokenClaim",
   trigger: WorkflowTrigger.UserTokenGeneration,
-  trigger: "user:tokens_generation",
   name: "Add Access Token Claim",
   bindings: {
     "kinde.accessToken": {}
@@ -12,8 +12,9 @@ export const workflowSettings: WorkflowSettings = {
 
 export default {
   async handle(event: onUserTokenGeneratedEvent) {
-    const accessToken = accessTokenCustomClaims<{ hello: string; ipAddress: string; ipAdd: string}>();
+    const accessToken = accessTokenCustomClaims<{ hello: string; ipAddress: string; settings: string}>();
     accessToken.hello = "Hello there!";
     accessToken.ipAddress = event.request.ip
+    accessToken.settings = settings.output
   }
 }

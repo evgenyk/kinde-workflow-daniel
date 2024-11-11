@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@kinde/infrastructure": "^0.0.10"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
   }
 }
