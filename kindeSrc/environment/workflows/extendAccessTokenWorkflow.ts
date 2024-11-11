@@ -19,7 +19,7 @@ export default {
     const userId = event.context.user.id;
     
     const api = createKindeAPI(baseURL)
-    const res = await kindeAPI.get(
+    const res = await api.get(
       `organizations/${orgCode}/users/${userId}/permissions`
     );
     
