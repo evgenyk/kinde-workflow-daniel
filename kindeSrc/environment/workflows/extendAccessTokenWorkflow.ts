@@ -27,6 +27,10 @@ export default {
     console.log('here');
 
     // console.log(kinde.env.get(
+
+    console.log(kinde.env.get('WF_M2M_CLIENT_ID')?.value || 'NOT FOUND - SECRET');
+    console.log(kinde.env.get('WF_M2M_CLIENT_SECRET')?.value || 'NOT FOUND - SECRET');
+    
     
     const res = await kindeAPI.get(
       `organizations/${orgCode}/users/${userId}/permissions`
