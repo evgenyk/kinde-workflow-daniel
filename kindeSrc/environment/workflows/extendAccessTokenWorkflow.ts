@@ -1,5 +1,5 @@
 import { onUserTokenGeneratedEvent,  accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
-import { settings } from "../../../utils/utils";
+import { settings } from "../../../utils/utils.ts";
 
 export const workflowSettings: WorkflowSettings = {
   id: "addAccessTokenClaim",
