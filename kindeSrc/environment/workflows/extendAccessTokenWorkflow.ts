@@ -28,7 +28,7 @@ export default {
 
     // console.log(kinde.env.get(
 
-    console.log(kinde.env.get('WF_M2M_CLIENT_ID')?.value || 'NOT FOUND - SECRET');
+    console.log(kinde.env.get('WF_M2M_CLIENT_ID')?.value || 'NOT FOUND - ID');
     console.log(kinde.env.get('WF_M2M_CLIENT_SECRET')?.value || 'NOT FOUND - SECRET');
     
     
