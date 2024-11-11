@@ -14,9 +14,9 @@ export default {
   async handle(event: onUserTokenGeneratedEvent) {
     const excludedPermissions = ['payments:create'];
     
-    const baseURL = context.domains.kindeDomain;
-    const orgCode = context.organization.code;
-    const userId = context.user.id;
+    const baseURL = event.context.domains.kindeDomain;
+    const orgCode = event.context.organization.code;
+    const userId = event.context.user.id;
     
     const api = createKindeAPI(baseURL)
     const res = await kindeAPI.get(
