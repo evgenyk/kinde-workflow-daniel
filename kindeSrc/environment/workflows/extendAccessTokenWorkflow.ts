@@ -10,6 +10,7 @@ export const workflowSettings: WorkflowSettings = {
     "kinde.fetch": {},
     "url": {},
     "kinde.env": {},
+    "console": {},
   }
 };
 
