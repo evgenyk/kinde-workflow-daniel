@@ -12,9 +12,21 @@ export const workflowSettings: WorkflowSettings = {
 
 export default {
   async handle(event: onUserTokenGeneratedEvent) {
-    const accessToken = accessTokenCustomClaims<{ hello: string; ipAddress: string; settings: string}>();
+    const excludedPermissions = ['payments:create'];
+    
+    const baseURL = context.domains.kindeDomain;
+    const orgCode = context.organization.code;
+    const userId = context.user.id;
+    
+    const api = createKindeAPI(baseURL)
+    const res = await kindeAPI.get(
+      `organizations/${orgCode}/users/${userId}/permissions`
+    );
+    
+    const accessToken = accessTokenCustomClaims<{ hello: string; ipAddress: string; settings: string; permissions: []}>();
     accessToken.hello = "Hello there!";
     accessToken.ipAddress = event.request.ip
     accessToken.settings = settings.output
+    accessToken.permissions =  res.permissions.filter((p) => !excludedPermissions.includes(p.key))
   }
 }
