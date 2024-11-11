@@ -24,6 +24,10 @@ export default {
     
     const kindeAPI = await(await createKindeAPI(baseURL))();
     console.log('log api', kindeAPI)
+    console.log('here');
+
+    // console.log(kinde.env.get(
+    
     const res = await kindeAPI.get(
       `organizations/${orgCode}/users/${userId}/permissions`
     );
