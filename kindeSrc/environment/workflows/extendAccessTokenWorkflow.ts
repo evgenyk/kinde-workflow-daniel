@@ -6,7 +6,7 @@ export const workflowSettings: WorkflowSettings = {
   trigger: "user:tokens_generation",
   name: "Add Access Token Claim",
   bindings: {
-    "kinde.accessToken" {}
+    "kinde.accessToken": {}
   }
 };
 
