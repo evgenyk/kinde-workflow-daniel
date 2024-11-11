@@ -10,7 +10,7 @@ export const workflowSettings: WorkflowSettings = {
     "kinde.fetch": {},
     "url": {},
     "kinde.env": {},
-    "console": {},
+    "console.log": {},
   }
 };
 
@@ -27,7 +27,8 @@ export default {
     const res = await kindeAPI.get(
       `organizations/${orgCode}/users/${userId}/permissions`
     );
-    
+
+    console.log('log api - res', res)
     const accessToken = accessTokenCustomClaims<{ hello: string; ipAddress: string; settings: string; permissions: []}>();
     accessToken.hello = "Hello there!";
     accessToken.ipAddress = event.request.ip
