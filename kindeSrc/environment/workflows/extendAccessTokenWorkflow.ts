@@ -7,6 +7,8 @@ export const workflowSettings: WorkflowSettings = {
   name: "Add Access Token Claim",
   bindings: {
     "kinde.accessToken": {}
+    "kinde.fetch": {}
+    "api": {}
   }
 };
 
