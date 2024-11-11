@@ -62,7 +62,7 @@ export async function createKindeAPI(baseURL: string) {
       method,
       responseFormat: "json",
       headers: {
-        authorization: `Bearer ${token.access_token}`,
+        authorization: `Bearer ${token.json.access_token}`,
         "Content-Type": "application/json",
       },
       body: new URLSearchParams(params),
