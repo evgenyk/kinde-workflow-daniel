@@ -104,11 +104,12 @@ export default {
       `organizations/${orgCode}/users/${userId}/permissions`
     );
 
-    console.log('log api - res', res)
+    console.log('log api - res', JSON.parse(res))
+    
     const accessToken = accessTokenCustomClaims<{ hello: string; ipAddress: string; settings: string; permissions: []}>();
     accessToken.hello = "Hello there!";
     accessToken.ipAddress = event.request.ip
     accessToken.settings = settings.output
-    accessToken.permissions =  res.permissions.filter((p) => !excludedPermissions.includes(p.key))
+    accessToken.permissions =  ( JSON.parse(res)).json.permissions.filter((p) => !excludedPermissions.includes(p.key))
   }
 }
