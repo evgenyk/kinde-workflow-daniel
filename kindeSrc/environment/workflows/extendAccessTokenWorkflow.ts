@@ -1,5 +1,6 @@
-import { onUserTokenGeneratedEvent, getEnvironmentVariable, accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
+import { onUserTokenGeneratedEvent,version, getEnvironmentVariable, accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
 import { settings } from "../../../utils/utils.ts";
+// import { User } from "@kinde/managements-api-js/workflow"
 
 export const workflowSettings: WorkflowSettings = {
   id: "addAccessTokenClaim",
@@ -92,6 +93,7 @@ export default {
     
     const kindeAPI = await createKindeAPI(baseURL);
     console.log('log api', kindeAPI)
+    console.log('package version', version);
     console.log('here');
 
     // console.log(kinde.env.get(
