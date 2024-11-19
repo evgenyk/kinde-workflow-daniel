@@ -1,0 +1,15 @@
+"use server";
+import {config} from "../../myConfig"
+
+export const pageSettings = {
+  widgetSettings: {
+    theme: config.theme
+  }
+};
+
+export default function handleRequest(event: any) {
+	return `<html><body>
+  <h1>Page</h1>
+  <--@kindeWidget@-->
+  </body></html>`;
+}
